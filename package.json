@@ -1,7 +1,7 @@
 {
   "name": "@markormesher/eslint-config",
   "type": "module",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "main": "index.js",
   "repository": "https://github.com/markormesher/eslint-config",
   "author": "Mark Ormesher",
@@ -28,7 +28,6 @@
   },
   "devDependencies": {
     "eslint": "^8.0.0",
-    "lockfile-lint": "^4.6.2",
     "prettier": "^3.0.0",
     "typescript": ">=3.3.1 <5.1.0"
   },
