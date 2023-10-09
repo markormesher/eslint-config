@@ -121,7 +121,6 @@ __metadata:
     lockfile-lint: ^4.6.2
     prettier: ^3.0.0
     typescript: ">=3.3.1 <5.1.0"
-    yarn-deduplicate: ^6.0.2
   peerDependencies:
     eslint: ">=7.0.0 <9.0.0"
     typescript: ">=3.3.1 <5.1.0"
@@ -316,13 +315,6 @@ __metadata:
     "@typescript-eslint/types": 6.5.0
     eslint-visitor-keys: ^3.4.1
   checksum: 768a02dd0d8aae45708646bb0c51e67da09e71dc101bb0a0e55d7e0c8eadfea2f531acd3035d1ec34bf2380b66188f3fc47c6bef0201eae36b2dcc48d1934442
-  languageName: node
-  linkType: hard
-
-"@yarnpkg/lockfile@npm:^1.1.0":
-  version: 1.1.0
-  resolution: "@yarnpkg/lockfile@npm:1.1.0"
-  checksum: 05b881b4866a3546861fee756e6d3812776ea47fa6eb7098f983d6d0eefa02e12b66c3fff931574120f196286a7ad4879ce02743c8bb2be36c6a576c7852083a
   languageName: node
   linkType: hard
 
@@ -646,13 +638,6 @@ __metadata:
   version: 1.1.4
   resolution: "color-name@npm:1.1.4"
   checksum: b0445859521eb4021cd0fb0cc1a75cecf67fceecae89b63f62b201cca8d345baf8b952c966862a9d9a2632987d4f6581f0ec8d957dfacece86f0a7919316f610
-  languageName: node
-  linkType: hard
-
-"commander@npm:^10.0.1":
-  version: 10.0.1
-  resolution: "commander@npm:10.0.1"
-  checksum: 436901d64a818295803c1996cd856621a74f30b9f9e28a588e726b2b1670665bccd7c1a77007ebf328729f0139838a88a19265858a0fa7a8728c4656796db948
   languageName: node
   linkType: hard
 
@@ -2569,7 +2554,7 @@ __metadata:
   languageName: node
   linkType: hard
 
-"semver@npm:^7.5.0, semver@npm:^7.5.4":
+"semver@npm:^7.5.4":
   version: 7.5.4
   resolution: "semver@npm:7.5.4"
   dependencies:
@@ -3056,20 +3041,6 @@ __metadata:
     y18n: ^5.0.5
     yargs-parser: ^20.2.2
   checksum: b14afbb51e3251a204d81937c86a7e9d4bdbf9a2bcee38226c900d00f522969ab675703bee2a6f99f8e20103f608382936034e64d921b74df82b63c07c5e8f59
-  languageName: node
-  linkType: hard
-
-"yarn-deduplicate@npm:^6.0.2":
-  version: 6.0.2
-  resolution: "yarn-deduplicate@npm:6.0.2"
-  dependencies:
-    "@yarnpkg/lockfile": ^1.1.0
-    commander: ^10.0.1
-    semver: ^7.5.0
-    tslib: ^2.5.0
-  bin:
-    yarn-deduplicate: dist/cli.js
-  checksum: 2f6c38deaa1139f3a099069dc946a3800e5ba64410d1c45f516dc381e4b1619f0d4f7ad3b38a617e3a85d629ce42e5592105de7089a0da4d0198881ee5390947
   languageName: node
   linkType: hard
 
