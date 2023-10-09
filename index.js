@@ -32,6 +32,10 @@ export default [
       prettier: prettierPlugin,
       import: importPlugin,
     },
+    settings: {
+      // ensure that Yarn PnP dependencies are also treated as external
+      "import/external-module-folders": ["node_modules", ".yarn"],
+    },
     rules: {
       // customise prettier behaviour
       "prettier/prettier": [
