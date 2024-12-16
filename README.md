@@ -39,7 +39,7 @@ export default [
 
 ### Dependencies
 
-These are peer dependencies, expected to be installed in the project but not provided by this package.
+The plugins that this project uses are bundled with it as direct dependencies. The following are peer dependencies:
 
-- [ESLint](https://www.npmjs.com/package/eslint) @ >= 7.0.0, <9.0.0
+- [ESLint](https://www.npmjs.com/package/eslint) @ >= 8.0.0, <10.0.0
 - [TypeScript](https://www.npmjs.com/package/typescript) @ >=3.3.1

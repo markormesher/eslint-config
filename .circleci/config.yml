@@ -12,14 +12,14 @@ jobs:
       - checkout
       - restore_cache:
           keys:
-            - dependency-cache-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+            - dependency-cache-{{ checksum "package.json" }}-{{ checksum "pnpm-lock.yaml" }}
             - dependency-cache-{{ checksum "package.json" }}-
             - dependency-cache-
       - run:
           name: Install dependencies
-          command: yarn install --immutable
+          command: pnpm install --frozen-lockfile
       - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "yarn.lock" }}
+          key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "pnpm-lock.yaml" }}
           paths:
             - node_modules
       - persist_to_workspace:
@@ -34,7 +34,7 @@ jobs:
           at: .
       - run:
           name: Check linters
-          command: yarn lint
+          command: pnpm lint
 
   maybe_deploy:
     # Tag filtering in CircleCI is unreliable - this is hacky, but it works
