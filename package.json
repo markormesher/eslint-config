@@ -5,7 +5,7 @@
   "main": "index.js",
   "repository": "https://github.com/markormesher/eslint-config",
   "author": "Mark Ormesher",
-  "license": "Apache-2.0",
+  "license": "AGPL-3.0",
   "files": [
     "index.js"
   ],
