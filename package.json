@@ -3,7 +3,10 @@
   "type": "module",
   "version": "0.1.0",
   "main": "index.js",
-  "repository": "https://github.com/markormesher/eslint-config",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/markormesher/eslint-config.git"
+  },
   "author": "Mark Ormesher",
   "license": "AGPL-3.0",
   "files": [
