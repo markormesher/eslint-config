@@ -3,7 +3,7 @@ version: 2
 defaults: &defaults
   working_directory: ~/eslint-config
   docker:
-    - image: cimg/node:24.6.0
+    - image: cimg/node:24.7.0
 
 jobs:
   setup:
