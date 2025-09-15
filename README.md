@@ -12,9 +12,9 @@ Intended for projects using ESLint's "new" [flat config format](https://eslint.o
 Install from GitHub:
 
 ```shell
-pnpm add --save-dev @markormesher/eslint-config@https://github.com/markormesher/eslint-config#semver:^0.0.0
+pnpm add --save-dev @markormesher/eslint-config@https://github.com/markormesher/eslint-config#semver:^0.2.0
 # or
-yarn add --dev @markormesher/eslint-config@https://github.com/markormesher/eslint-config#semver:^0.0.0
+yarn add --dev @markormesher/eslint-config@https://github.com/markormesher/eslint-config#semver:^0.2.0
 ```
 
 Add it to `eslint.config.js`:
