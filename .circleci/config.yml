@@ -1,63 +1,121 @@
-version: 2
+# This file is maintained by Tedium - manual edits will be overwritten!
 
-defaults: &defaults
-  working_directory: ~/eslint-config
-  docker:
-    - image: cimg/node:24.8.0
-
+version: "2.1"
 jobs:
-  setup:
-    <<: *defaults
+  cachekey:
+    docker:
+      - image: cimg/base:2025.09
     steps:
-      - checkout
-      - restore_cache:
-          keys:
-            - dependency-cache-{{ checksum "package.json" }}-{{ checksum "pnpm-lock.yaml" }}
-            - dependency-cache-{{ checksum "package.json" }}-
-            - dependency-cache-
+      - attach_workspace:
+          at: .
       - run:
-          name: Install dependencies
-          command: pnpm install --frozen-lockfile
-      - save_cache:
-          key: dependency-cache-{{ checksum "package.json" }}-{{ checksum "pnpm-lock.yaml" }}
+          command: ./task cachekey
+      - persist_to_workspace:
+          root: .
           paths:
-            - node_modules
+            - ./.task-meta-cachekey*
+  checkout:
+    docker:
+      - image: cimg/base:2025.09
+    steps:
+      - checkout:
+          path: .
       - persist_to_workspace:
           root: .
           paths:
             - .
-
-  lint:
-    <<: *defaults
+  ci-all:
+    docker:
+      - image: cimg/base:2025.09
+    steps:
+      - run:
+          command: echo "Done"
+  deps-js:
+    docker:
+      - image: docker.io/node:24.8.0-slim
+    steps:
+      - attach_workspace:
+          at: .
+      - restore_cache:
+          keys:
+            - deps-js-v6-{{ checksum ".task-meta-cachekey-js" }}
+            - deps-js-v6-
+      - run:
+          command: |-
+            corepack enable
+            ./task deps-js
+      - save_cache:
+          key: deps-js-v6-{{ checksum ".task-meta-cachekey-js" }}
+          paths:
+            - /usr/local/lib/node_modules
+            - node_modules
+  fetch-task:
+    docker:
+      - image: ghcr.io/markormesher/task-fetcher:v0.4.1
     steps:
       - attach_workspace:
           at: .
       - run:
-          name: Check linters
-          command: pnpm lint
-
-  maybe_deploy:
-    # Tag filtering in CircleCI is unreliable - this is hacky, but it works
-    <<: *defaults
+          command: cp /task .
+      - persist_to_workspace:
+          root: .
+          paths:
+            - ./task
+  lint-js:
+    docker:
+      - image: docker.io/node:24.8.0-slim
     steps:
       - attach_workspace:
           at: .
+      - restore_cache:
+          keys:
+            - deps-js-v6-{{ checksum ".task-meta-cachekey-js" }}
+            - deps-js-v6-
       - run:
-          name: Maybe Deploy
-          command: |
-            # deploy tagged commits only
-            if ! git describe --exact-match HEAD > /dev/null 2>&1; then echo "Not on tagged commit - nothing to do"; exit 0; fi
-            echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' >> ~/.npmrc
-            npm publish --scope=@markormesher --access public
-
+          command: |-
+            corepack enable
+            ./task lint-js
 workflows:
   version: 2
-  build_test_deploy:
+  main:
     jobs:
-      - setup
-      - lint:
+      - checkout:
+          requires: []
+          filters:
+            tags:
+              only: /.*/
+      - fetch-task:
+          requires: []
+          filters:
+            tags:
+              only: /.*/
+      - cachekey:
           requires:
-            - setup
-      - maybe_deploy:
+            - checkout
+            - fetch-task
+          filters:
+            tags:
+              only: /.*/
+      - deps-js:
           requires:
-            - lint
+            - cachekey
+            - checkout
+            - fetch-task
+          filters:
+            tags:
+              only: /.*/
+      - lint-js:
+          requires:
+            - checkout
+            - deps-js
+            - fetch-task
+          filters:
+            tags:
+              only: /.*/
+      - ci-all:
+          requires:
+            - deps-js
+            - lint-js
+          filters:
+            tags:
+              only: /.*/
