@@ -38,17 +38,17 @@ jobs:
           at: .
       - restore_cache:
           keys:
-            - deps-js-v5-{{ checksum ".task-meta-cachekey-js" }}
-            - deps-js-v5-
+            - deps-js-v6-{{ checksum ".task-meta-cachekey-js" }}
+            - deps-js-v6-
       - run:
           command: |-
             corepack enable
             ./task deps-js
       - save_cache:
-          key: deps-js-v5-{{ checksum ".task-meta-cachekey-js" }}
+          key: deps-js-v6-{{ checksum ".task-meta-cachekey-js" }}
           paths:
             - /usr/local/lib/node_modules
-            - '{{.ROOT_DIR}}/node_modules'
+            - node_modules
   fetch-task:
     docker:
       - image: ghcr.io/markormesher/task-fetcher:v0.4.1
@@ -69,8 +69,8 @@ jobs:
           at: .
       - restore_cache:
           keys:
-            - deps-js-v5-{{ checksum ".task-meta-cachekey-js" }}
-            - deps-js-v5-
+            - deps-js-v6-{{ checksum ".task-meta-cachekey-js" }}
+            - deps-js-v6-
       - run:
           command: |-
             corepack enable
