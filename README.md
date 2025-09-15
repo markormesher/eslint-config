@@ -9,10 +9,12 @@ Intended for projects using ESLint's "new" [flat config format](https://eslint.o
 
 ## Installation and Usage
 
-Install with yarn:
+Install from GitHub:
 
 ```shell
-yarn add --dev @markormesher/eslint-config
+pnpm add --save-dev @markormesher/eslint-config@https://github.com/markormesher/eslint-config#semver:^0.0.0
+# or
+yarn add --dev @markormesher/eslint-config@https://github.com/markormesher/eslint-config#semver:^0.0.0
 ```
 
 Add it to `eslint.config.js`:

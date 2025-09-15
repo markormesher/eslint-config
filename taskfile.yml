@@ -1,0 +1,41 @@
+# This file is maintained by Tedium - manual edits will be overwritten!
+
+version: "3"
+includes:
+  local:
+    taskfile: taskfile.local.yml
+    optional: true
+tasks:
+  cachekey:
+    cmds:
+      - cmd: rm -f "{{.ROOT_DIR}}/.task-meta-cachekey"*
+      - task: cachekey-js-root
+  cachekey-js:
+    cmds:
+      - task: cachekey-js-root
+  cachekey-js-root:
+    dir: '{{.ROOT_DIR}}'
+    cmds:
+      - cmd: sha256sum package.json | awk '{print $1}' >> "{{.ROOT_DIR}}/.task-meta-cachekey-js"
+      - cmd: if [[ -f pnpm-lock.yaml ]]; then sha256sum pnpm-lock.yaml | awk '{print $1}' >> "{{.ROOT_DIR}}/.task-meta-cachekey-js"; fi
+      - cmd: if [[ -f yarn.lock ]]; then sha256sum yarn.lock | awk '{print $1}' >> "{{.ROOT_DIR}}/.task-meta-cachekey-js"; fi
+  deps:
+    cmds:
+      - task: deps-js-root
+  deps-js:
+    cmds:
+      - task: deps-js-root
+  deps-js-root:
+    dir: '{{.ROOT_DIR}}'
+    cmds:
+      - cmd: pnpm install --frozen-lockfile
+  lint:
+    cmds:
+      - task: lint-js-root
+  lint-js:
+    cmds:
+      - task: lint-js-root
+  lint-js-root:
+    dir: '{{.ROOT_DIR}}'
+    cmds:
+      - cmd: pnpm lint
