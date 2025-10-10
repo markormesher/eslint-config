@@ -32,7 +32,7 @@ jobs:
           command: echo "Done"
   deps-js:
     docker:
-      - image: docker.io/node:24.9.0-slim
+      - image: docker.io/node:24.10.0-slim
     steps:
       - attach_workspace:
           at: .
@@ -63,7 +63,7 @@ jobs:
             - ./task
   lint-js:
     docker:
-      - image: docker.io/node:24.9.0-slim
+      - image: docker.io/node:24.10.0-slim
     steps:
       - attach_workspace:
           at: .
