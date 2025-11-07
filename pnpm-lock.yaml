@@ -10,7 +10,7 @@ importers:
     dependencies:
       '@eslint/js':
         specifier: ^9.17.0
-        version: 9.17.0
+        version: 9.39.1
       '@typescript-eslint/eslint-plugin':
         specifier: ^8.0.0
         version: 8.18.0(@typescript-eslint/parser@8.18.0(eslint@9.17.0)(typescript@5.7.2))(eslint@9.17.0)(typescript@5.7.2)
@@ -37,7 +37,7 @@ importers:
         version: 3.4.2
     devDependencies:
       eslint:
-        specifier: '>=8.0.0 <10.0.0'
+        specifier: <10.0.0
         version: 9.17.0
       typescript:
         specifier: '>=3.3.1'
@@ -136,6 +136,10 @@ packages:
 
   '@eslint/js@9.17.0':
     resolution: {integrity: sha512-Sxc4hqcs1kTu0iID3kcZDW3JHq2a77HO9P8CP6YEA/FpH3Ll8UXE2r/86Rz9YJLKme39S9vU5OWNjC6Xl0Cr3w==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+
+  '@eslint/js@9.39.1':
+    resolution: {integrity: sha512-S26Stp4zCy88tH94QbBv3XCuzRQiZ9yXofEILmglYTh/Ug/a9/umqvgFtYBAo3Lp0nsI/5/qH1CCrbdK3AP1Tw==}
     engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
 
   '@eslint/object-schema@2.1.5':
@@ -1489,6 +1493,8 @@ snapshots:
       - supports-color
 
   '@eslint/js@9.17.0': {}
+
+  '@eslint/js@9.39.1': {}
 
   '@eslint/object-schema@2.1.5': {}
 
