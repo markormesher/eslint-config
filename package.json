@@ -34,5 +34,5 @@
     "eslint": "9.17.0",
     "typescript": "5.7.2"
   },
-  "packageManager": "pnpm@10.20.0"
+  "packageManager": "pnpm@10.23.0"
 }
