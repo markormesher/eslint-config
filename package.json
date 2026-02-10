@@ -16,11 +16,11 @@
     "lint": "eslint ./"
   },
   "peerDependencies": {
-    "eslint": ">=8.0.0 <10.0.0",
+    "eslint": ">=8.0.0 <11.0.0",
     "typescript": ">=3.3.1"
   },
   "dependencies": {
-    "@eslint/js": "^9.17.0",
+    "@eslint/js": "^10.0.0",
     "@typescript-eslint/eslint-plugin": "^8.0.0",
     "@typescript-eslint/parser": "^8.0.0",
     "eslint-config-prettier": "^10.0.0",
@@ -31,7 +31,7 @@
     "prettier": "^3.4.2"
   },
   "devDependencies": {
-    "eslint": "9.39.2",
+    "eslint": "10.0.0",
     "typescript": "5.9.3"
   },
   "packageManager": "pnpm@10.28.2"
