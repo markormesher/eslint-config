@@ -1,5 +1,4 @@
 ![CircleCI](https://img.shields.io/circleci/build/github/markormesher/eslint-config)
-![npm](https://img.shields.io/npm/v/@markormesher/eslint-config)
 
 # @markormesher/eslint-config
 
@@ -43,5 +42,5 @@ export default [
 
 The plugins that this project uses are bundled with it as direct dependencies. The following are peer dependencies:
 
-- [ESLint](https://www.npmjs.com/package/eslint) @ >= 8.0.0, <10.0.0
+- [ESLint](https://www.npmjs.com/package/eslint) @ >= 10.0.0, <11.0.0
 - [TypeScript](https://www.npmjs.com/package/typescript) @ >=3.3.1
