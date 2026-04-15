@@ -32,7 +32,7 @@ jobs:
           command: echo "Done"
   deps-js:
     docker:
-      - image: docker.io/node:24.14.1-slim@sha256:06e5c9f86bfa0aaa7163cf37a5eaa8805f16b9acb48e3f85645b09d459fc2a9f
+      - image: docker.io/node:24.14.1-slim@sha256:b506e7321f176aae77317f99d67a24b272c1f09f1d10f1761f2773447d8da26c
     steps:
       - attach_workspace:
           at: .
@@ -51,7 +51,7 @@ jobs:
             - node_modules
   fetch-task:
     docker:
-      - image: ghcr.io/markormesher/task-fetcher:v0.6.6@sha256:aa21871b15a48a00b6c959eeacbf506f74f1ef331da1e224a01d859d4a580941
+      - image: ghcr.io/markormesher/task-fetcher:v0.6.7@sha256:64d146f9b141e18309fed994637078f49c03bf7a987c088563ba5d2a4200bd3d
     steps:
       - attach_workspace:
           at: .
@@ -63,7 +63,7 @@ jobs:
             - ./task
   lint-js:
     docker:
-      - image: docker.io/node:24.14.1-slim@sha256:06e5c9f86bfa0aaa7163cf37a5eaa8805f16b9acb48e3f85645b09d459fc2a9f
+      - image: docker.io/node:24.14.1-slim@sha256:b506e7321f176aae77317f99d67a24b272c1f09f1d10f1761f2773447d8da26c
     steps:
       - attach_workspace:
           at: .
