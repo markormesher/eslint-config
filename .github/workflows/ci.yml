@@ -8,7 +8,7 @@ jobs:
     container:
       image: docker.io/node:25.9.0
     steps:
-      - uses: markormesher/ci-resources/setup@v0.6.0
+      - uses: markormesher/ci-resources/setup@483c89c13fab98a3760dddba5898d696b207cd8f # v0.7.0
       - run: npm install -g --force yarn pnpm
       - run: ./task deps-js
       - run: ./task lint-js
