@@ -36,7 +36,7 @@ importers:
         specifier: ^3.8.1
         version: 3.9.5
       typescript:
-        specifier: '>=3.3.1 <7.0.0'
+        specifier: '>=3.3.1 <8.0.0'
         version: 6.0.3
     devDependencies:
       eslint:
