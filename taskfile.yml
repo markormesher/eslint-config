@@ -39,3 +39,4 @@ tasks:
     dir: '{{.ROOT_DIR}}'
     cmds:
       - cmd: pnpm lint
+      - cmd: pnpm peers check
