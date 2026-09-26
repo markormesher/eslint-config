@@ -1,3 +1,4 @@
+_Replaced with [@markormesher/biome-config](https://github.com/markormesher/biome-config) as of September 2026._
 
 # @markormesher/eslint-config
 
